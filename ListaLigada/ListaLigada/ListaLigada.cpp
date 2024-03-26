@@ -126,31 +126,58 @@ void inserirElemento()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
-	novo->prox = NULL;
-
-	if (primeiro == NULL)
-	{
-		primeiro = novo;
+	if (posicaoElemento(novo->valor) != NULL) {
+		cout << "Elemento duplicado." << endl;
+		return;
 	}
-	else
-	{
-		// procura o final da lista
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
+	else {
+		novo->prox = NULL;
+
+		if (primeiro == NULL)
+		{
+			primeiro = novo;
 		}
-		aux->prox = novo;
+		else
+		{
+			// procura o final da lista
+			NO* aux = primeiro;
+			while (aux->prox != NULL) {
+				aux = aux->prox;
+			}
+			aux->prox = novo;
+		}
 	}
 }
 
-void excluirElemento()
+
+void excluirElemento ()
 {
+	NO* atual = primeiro;
+	NO* anterior = NULL;
+	int valor;
 	
+	cout << "Informe o elemento a ser excluido: " << endl;
+	if (atual->valor);
 }
 
 void buscarElemento()
 {
-	
+	if (primeiro == NULL) {
+		cout << " A Lista vazia " << endl;
+	}
+	else {
+		int valor;
+		cout << "Digite o numero a ser encontrado: ";
+		cin >> valor;
+		if (posicaoElemento(valor) == NULL) {
+			cout << "Elemento não encontrado." << endl;
+			return;
+		}
+		cout << "Elemento encontrado: " << posicaoElemento(valor)->valor  << endl;
+	} 
+
+
+
 }
 
 
